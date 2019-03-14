@@ -14,6 +14,7 @@ import java.util.List;
 import sung.dennis.testargbevaluator.adapter.MyAdapter;
 import sung.dennis.testargbevaluator.fragment.MyFragment;
 import sung.dennis.testargbevaluator.listener.MyPageChangeLisener;
+import sung.dennis.testargbevaluator.listener.MyPageTransformer;
 import sung.dennis.testargbevaluator.view.MyLinearLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new MyAdapter(getSupportFragmentManager(), pages));
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new MyPageChangeLisener(bgLayout));
+        viewPager.setPageTransformer(true, new MyPageTransformer());
 
         textView2 = findViewById(R.id.textView2);
         textView2.setOnClickListener(new View.OnClickListener() {
