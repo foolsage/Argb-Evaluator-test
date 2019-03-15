@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void iniPages(){
-        for(int i=0;i<3;i++){
+        for(int i=0;i<12;i++){
             pages.add(MyFragment.newInstance(i+1));
         }
     }

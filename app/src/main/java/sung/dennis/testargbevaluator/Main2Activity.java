@@ -51,7 +51,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void iniPages(){
-        for(int i=0;i<3;i++){
+        for(int i=0;i<12;i++){
             pages.add(MyFragment.newInstance(i+1));
         }
     }
@@ -59,12 +59,7 @@ public class Main2Activity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         ArgbEvaluator evaluator = new ArgbEvaluator();
-        int evaluate;
-        if(position==colors.length-1){
-            evaluate = (Integer) evaluator.evaluate(positionOffset, colors[position], colors[position]);
-        }else {
-            evaluate = (Integer) evaluator.evaluate(positionOffset, colors[position], colors[position+1]);
-        }
+        int evaluate = (Integer) evaluator.evaluate(positionOffset, colors[position%colors.length], colors[(position+1)%colors.length]);
         bg.setBackgroundColor(evaluate);
     }
 
